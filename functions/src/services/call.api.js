@@ -4,6 +4,7 @@
 Appel de l'api Twitch
 */
 const https = require('https');
+const functions = require('firebase-functions');
 
 const apiKey = process.env.API_KEY;
 const host = 'api.twitch.tv';
@@ -14,7 +15,7 @@ const apiCall = (): Promise<string> => new Promise((resolve, reject): void => {
     host,
     path,
     headers: {
-      'Client-ID': apiKey,
+      'Client-ID': apiKey || functions.config().api.key,
     },
   };
   https.get(options, (resp): void => {
