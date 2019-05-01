@@ -10,7 +10,7 @@ const checkFields = (required: Array<string>, reqBody: Array<string>): Object =>
 
   // Vérifier qu'il ne manque pas de champs
   required.forEach((prop) => {
-    if (!reqBody.indexOf(prop) === -1) {
+    if (reqBody.indexOf(prop) === -1) {
       miss.push(prop);
     }
   });
