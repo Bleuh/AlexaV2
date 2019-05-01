@@ -18,7 +18,7 @@ exports.dialogflowFirebaseFulfillment = functions.https.onRequest((request, resp
     miss,
     extra,
     ok,
-  } = checkFields(['responseId', 'queryResult', 'originalDetectIntentRequest', 'session'], Object.entries(request.body).length !== 0 ? request.body.queryResult.parameters : []);
+  } = checkFields(['responseId', 'queryResult', 'originalDetectIntentRequest', 'session'], Object.entries(request.body).length !== 0 ? Object.keys(request.body) : []);
 
   if (!ok) {
     response.json(getFieldsError('Il semblerait que la requête envoyée soit erronée.', miss, extra));
