@@ -1,7 +1,7 @@
 // @flow
 
 /*
-Appel de l'api Twitch
+Call Twitch API
 */
 const https = require('https');
 const functions = require('firebase-functions');

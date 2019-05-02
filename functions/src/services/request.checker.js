@@ -1,31 +1,30 @@
 // @flow
 
 /*
-Créer une fonction pour vérifier les données d'une requête
+Create a function to check the data of a query
 */
 const checkFields = (required: Array<string>, reqBody: Array<string>): Object => {
-  // Création de tableau pour les champs manquants ou en trop
+  // Creating a table for missing or too many fields
   const miss = [];
   const extra = [];
 
-  // Vérifier qu'il ne manque pas de champs
+  // Check that there are no fields missing
   required.forEach((prop) => {
     if (reqBody.indexOf(prop) === -1) {
       miss.push(prop);
     }
   });
 
-  // Vérifier les champs en trop
+  // Check if to many field
   reqBody.forEach((prop) => {
     if (required.indexOf(prop) === -1) {
       extra.push(prop);
     }
   });
 
-  // Vérifier les champs
+  // Check field
   const ok = (extra.length === 0 && miss.length === 0);
 
-  // Renvoyer le résultat
   return {
     ok,
     extra,

@@ -31,7 +31,7 @@ const getApiErrorResponse = (errorMessage: string, error :string): Object => ({
 
 
 /*
-Export service fonctions
+Export service functions
 */
 module.exports = {
   getFieldsError,
